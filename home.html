@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Your Website</title>
+  <style>
+    body {
+      margin: 0;
+      overflow: hidden;
+      font-family: Arial, sans-serif;
+      background: url('https://wallpaperxyz.com/wp-content/uploads/Gif-Animated-Wallpaper-Background-Full-HD-Free-Download-for-PC-Macbook-261121-Wallpaperxyz.com-4.gif') fixed;
+      background-size: cover;
+    }
+
+    .button-container {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      display: flex;
+      gap: 10px;
+    }
+
+    .login-button {
+      padding: 10px 20px;
+      background-color: #2ecc71;
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    .scripts-button {
+      padding: 10px 20px;
+      background-color: #3498db;
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+
+    .scripts-button:hover {
+      background-color: #2980b9;
+    }
+
+    .login-form-container {
+      display: none;
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background-color: #fff;
+      padding: 20px;
+      border-radius: 5px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .close-button {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      cursor: pointer;
+    }
+
+    .scripts-tab {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: url('script-tab-background.gif') fixed;
+      background-size: cover;
+      z-index: 1;
+    }
+
+    .scripts-tab-content {
+      position: absolute;
+      top: 20%;
+      left: 50%;
+      transform: translateX(-50%);
+      text-align: center;
+      width: 80%;
+    }
+
+    .script-button {
+      display: inline-block;
+      margin: 10px;
+      width: 100px;
+    }
+
+    .script-button img {
+      max-width: 100%;
+      border-radius: 5px;
+    }
+
+    .back-to-home-button {
+      padding: 10px 20px;
+      background-color: #e74c3c;
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      margin-top: 20px;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="button-container">
+    <button class="scripts-button" onclick="showScriptsTab()">Scripts</button>
+    <button class="login-button" onclick="showLoginForm()">Login</button>
+  </div>
+
+  <div class="login-form-container" id="loginForm">
+    <span class="close-button" onclick="closeLoginForm()">&times;</span>
+    <h2>Login</h2>
+    <form onsubmit="submitForm(event)">
+      <label for="username">Username:</label>
+      <input type="text" id="username" name="username" required>
+      <br>
+      <label for="password">Password:</label>
+      <input type="password" id="password" name="password" required>
+      <br>
+      <button type="submit">Submit</button>
+    </form>
+    <div id="resultMessage" style="display: none; margin-top: 10px;"></div>
+  </div>
+
+  <div class="scripts-tab" id="scriptsTab">
+    <div class="scripts-tab-content">
+      <h2>Scripts Tab Content</h2>
+      <div class="script-button">
+        <img src="C:\Users\timot\OneDrive\Documents\web\photos\Png.png" alt="Script 1">
+        <p>WILD WEST</p>
+      </div>
+      <div class="script-button">
+        <img src="image2.jpg" alt="Script 2">
+        <p>Script 2</p>
+      </div>
+      <div class="script-button">
+        <img src="image3.jpg" alt="Script 3">
+        <p>Script 3</p>
+      </div>
+      <!-- Repeat the above three lines to create more buttons -->
+      <button class="back-to-home-button" onclick="closeScriptsTab()">Back to Home</button>
+    </div>
+  </div>
+
+  <script>
+    function showLoginForm() {
+      document.getElementById('loginForm').style.display = 'block';
+    }
+
+    function closeLoginForm() {
+      document.getElementById('loginForm').style.display = 'none';
+      document.getElementById('resultMessage').style.display = 'none';
+    }
+
+    function submitForm(event) {
+      event.preventDefault();
+      const username = document.getElementById('username').value;
+      const resultMessage = document.getElementById('resultMessage');
+      resultMessage.textContent = `Welcome, ${username}! You're signed in.`;
+      resultMessage.style.display = 'block';
+    }
+
+    function showScriptsTab() {
+      document.getElementById('scriptsTab').style.display = 'block';
+    }
+
+    function closeScriptsTab() {
+      document.getElementById('scriptsTab').style.display = 'none';
+    }
+  </script>
+
+</body>
+</html>
